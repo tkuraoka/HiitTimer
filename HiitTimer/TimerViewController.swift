@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 class TimerViewController: UIViewController,CountDownDelegate {
 
@@ -24,6 +25,7 @@ class TimerViewController: UIViewController,CountDownDelegate {
     
     var timer: Timer!
     var countDownTimer = 3
+    var isStop = true
     
     @IBOutlet weak var setLabel: UILabel!
     @IBOutlet weak var onLabel: UILabel!
@@ -34,12 +36,26 @@ class TimerViewController: UIViewController,CountDownDelegate {
     @IBAction func finishButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func stopButton(_ sender: Any) {
-        //countDownView.start(max: 3)
+        if isStop {
+            countDownView.pauseAnimation()
+            isStop = false
+            stopButtonText.setTitle("再開", for: .normal)
+            
+
+        } else {
+            countDownView.resumeAnimation()
+            isStop = true
+            stopButtonText.setTitle("一時停止", for: .normal)
+
+        }
+        
+        print("DEBUG_PRINT:現在のステータスは \(isStop)")
+        
+        
     }
     
-    //private let secondLayer: CAShapeLayer = .init()
-    //var countDownView:CountDownView = CountDownView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
     var countDownView:CountDownView = CountDownView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
     
     
@@ -73,7 +89,6 @@ class TimerViewController: UIViewController,CountDownDelegate {
         // ストップボタンのデザイン設定
         stopButtonText.layer.masksToBounds = true
         stopButtonText.layer.cornerRadius = 10
-        
         // タイマーの作動
         //Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(count), userInfo: nil, repeats: true)
         
@@ -97,15 +112,6 @@ class TimerViewController: UIViewController,CountDownDelegate {
         }
         
     }
-    
-//    @objc private func update(_ displayLink: CADisplayLink) {
-//        print("updateメソッドが呼ばれました")
-//        // timeOffsetに現在時刻の秒数を設定
-//        let time: TimeInterval = Date().timeIntervalSince1970
-//        let seconds: TimeInterval = floor(time).truncatingRemainder(dividingBy: 60)
-//        let milliseconds: TimeInterval = time - floor(time)
-//        secondLayer.timeOffset = seconds + milliseconds
-//    }
 
     
     func didCount(count: Int) {
@@ -131,7 +137,7 @@ class TimerViewController: UIViewController,CountDownDelegate {
                 
             } else {
                 // Odd number
-                countDownView.start(max: 3, timeColor: "kyukei")
+                countDownView.start(max: 3.0, timeColor: "kyukei")
                 self.setLabel.backgroundColor = UIColor.systemBlue
                 self.setLabel.textColor = UIColor.white
                 
@@ -143,12 +149,23 @@ class TimerViewController: UIViewController,CountDownDelegate {
         } else {
             // 終了した時の処理
             print("PRINT_DEBUG: countは\(count) setCountは\(setCount)")
-            countDownView.stop()
-            self.setLabel.text = "終了"
-            
-            
+            countDownView.reset()
+            self.setLabel.text = "終了 \nお疲れさまでした"
+            showAnimation()
         }
 
+    }
+
+    
+    func showAnimation() {
+        let animationView = AnimationView(name: "Animation")
+        animationView.frame = CGRect(x: 0,y: 0, width: view.bounds.width / 2, height: view.bounds.height / 2)
+        animationView.center = self.view.center
+        animationView.loopMode = .repeat(3)
+        animationView.contentMode = .scaleAspectFit
+        animationView.animationSpeed = 1
+        view.addSubview(animationView)
+        animationView.play()
     }
 
 }

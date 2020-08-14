@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1655B1C924D4E96B0075FCA4 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1655B1C824D4E96B0075FCA4 /* Data.swift */; };
 		1655B1CB24D4FFB30075FCA4 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1655B1CA24D4FFB30075FCA4 /* TimerViewController.swift */; };
+		16BA0A4424DFA1B00031CC6E /* Animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 16BA0A4324DFA1B00031CC6E /* Animation.json */; };
 		16BB1B0824D1B18B008606BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BB1B0724D1B18B008606BE /* AppDelegate.swift */; };
 		16BB1B0A24D1B18B008606BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BB1B0924D1B18B008606BE /* SceneDelegate.swift */; };
 		16BB1B0C24D1B18B008606BE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BB1B0B24D1B18B008606BE /* MainViewController.swift */; };
@@ -16,11 +17,13 @@
 		16BB1B1124D1B18F008606BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16BB1B1024D1B18F008606BE /* Assets.xcassets */; };
 		16BB1B1424D1B18F008606BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16BB1B1224D1B18F008606BE /* LaunchScreen.storyboard */; };
 		16D2C81724D64BCA003FED59 /* CountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D2C81624D64BCA003FED59 /* CountDownView.swift */; };
+		7821FC67EBB589E06C0D560C /* Pods_HiitTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3245DE8C5FE88E64EF451157 /* Pods_HiitTimer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1655B1C824D4E96B0075FCA4 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		1655B1CA24D4FFB30075FCA4 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		16BA0A4324DFA1B00031CC6E /* Animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation.json; sourceTree = "<group>"; };
 		16BB1B0424D1B18B008606BE /* HiitTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiitTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16BB1B0724D1B18B008606BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16BB1B0924D1B18B008606BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +33,9 @@
 		16BB1B1324D1B18F008606BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16BB1B1524D1B18F008606BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16D2C81624D64BCA003FED59 /* CountDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownView.swift; sourceTree = "<group>"; };
+		3245DE8C5FE88E64EF451157 /* Pods_HiitTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiitTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7237193C4638F4C88B85F7FD /* Pods-HiitTimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiitTimer.debug.xcconfig"; path = "Target Support Files/Pods-HiitTimer/Pods-HiitTimer.debug.xcconfig"; sourceTree = "<group>"; };
+		A2B872CD556C1A9EC9B2B875 /* Pods-HiitTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiitTimer.release.xcconfig"; path = "Target Support Files/Pods-HiitTimer/Pods-HiitTimer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7821FC67EBB589E06C0D560C /* Pods_HiitTimer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +55,8 @@
 			children = (
 				16BB1B0624D1B18B008606BE /* HiitTimer */,
 				16BB1B0524D1B18B008606BE /* Products */,
+				79BC545454B4B9E80C3CB2AD /* Pods */,
+				708DDE71F4C7CB72840B0584 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,11 +78,29 @@
 				1655B1C824D4E96B0075FCA4 /* Data.swift */,
 				16BB1B0D24D1B18B008606BE /* Main.storyboard */,
 				16BB1B1024D1B18F008606BE /* Assets.xcassets */,
+				16BA0A4324DFA1B00031CC6E /* Animation.json */,
 				16BB1B1224D1B18F008606BE /* LaunchScreen.storyboard */,
 				16BB1B1524D1B18F008606BE /* Info.plist */,
 				16D2C81624D64BCA003FED59 /* CountDownView.swift */,
 			);
 			path = HiitTimer;
+			sourceTree = "<group>";
+		};
+		708DDE71F4C7CB72840B0584 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3245DE8C5FE88E64EF451157 /* Pods_HiitTimer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		79BC545454B4B9E80C3CB2AD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7237193C4638F4C88B85F7FD /* Pods-HiitTimer.debug.xcconfig */,
+				A2B872CD556C1A9EC9B2B875 /* Pods-HiitTimer.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,9 +110,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16BB1B1824D1B18F008606BE /* Build configuration list for PBXNativeTarget "HiitTimer" */;
 			buildPhases = (
+				5FF6D8789ACEF25CFA678F7D /* [CP] Check Pods Manifest.lock */,
 				16BB1B0024D1B18B008606BE /* Sources */,
 				16BB1B0124D1B18B008606BE /* Frameworks */,
 				16BB1B0224D1B18B008606BE /* Resources */,
+				4877DF444C90CEBF28EC83DB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -136,11 +165,54 @@
 			files = (
 				16BB1B1424D1B18F008606BE /* LaunchScreen.storyboard in Resources */,
 				16BB1B1124D1B18F008606BE /* Assets.xcassets in Resources */,
+				16BA0A4424DFA1B00031CC6E /* Animation.json in Resources */,
 				16BB1B0F24D1B18B008606BE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4877DF444C90CEBF28EC83DB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HiitTimer/Pods-HiitTimer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HiitTimer/Pods-HiitTimer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HiitTimer/Pods-HiitTimer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5FF6D8789ACEF25CFA678F7D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HiitTimer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		16BB1B0024D1B18B008606BE /* Sources */ = {
@@ -294,6 +366,7 @@
 		};
 		16BB1B1924D1B18F008606BE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7237193C4638F4C88B85F7FD /* Pods-HiitTimer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -312,6 +385,7 @@
 		};
 		16BB1B1A24D1B18F008606BE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2B872CD556C1A9EC9B2B875 /* Pods-HiitTimer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

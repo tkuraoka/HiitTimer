@@ -20,12 +20,9 @@ class CountDownView: UIView, CAAnimationDelegate {
     
     var shapeLayer = CAShapeLayer()
     var label = UILabel()
-    var max = 0
-    
+    var max:Double = 0.0
     var timer: Timer?
-    
-    //var lineColor = UIColor.brown
-    
+    var isDelegate = false
     
     
     override init(frame: CGRect) {
@@ -65,10 +62,10 @@ class CountDownView: UIView, CAAnimationDelegate {
         addSubview(label)
     }
     
-    func start(max:Int, timeColor: String) {
+    func start(max:Double, timeColor: String) {
         print("DEBUG_PRINT: start \(max)")
         if self.timer == nil {
-            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(count(_:)), userInfo: nil, repeats: true)
+            self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(count(_:)), userInfo: nil, repeats: true)
         }
         animation(max)
         self.max = max
@@ -90,19 +87,15 @@ class CountDownView: UIView, CAAnimationDelegate {
             shapeLayer.strokeColor = UIColor.black.cgColor
             label.textColor = UIColor.blue
         }
-        
 
     }
     
     @objc func count(_ timer: Timer) {
-        print("DEBUG_PRINT: countが始まりました")
-        print(max)
-        if self.max != 0 {
-            print("DEBUG_PRINT: \(max)")
-            self.max -= 1
-            label.text = "\(max)"
-        } else if max == 0 {
-            print("aaa")
+        print("DEBUG_PRINT: \(timer)")
+        if self.max > 0 {
+            self.max -= 0.1
+            label.text = String(format: "%.1f", max)
+        } else if max < 0 {
             if self.timer != nil {
                 self.timer?.invalidate()
                 self.timer = nil
@@ -112,7 +105,7 @@ class CountDownView: UIView, CAAnimationDelegate {
         
     }
     
-    func animation(_ max: Int) {
+    func animation(_ max: Double) {
         print("animationが呼ばれました")
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.duration = CFTimeInterval(max)
@@ -122,27 +115,47 @@ class CountDownView: UIView, CAAnimationDelegate {
         shapeLayer.add(animation, forKey: "circleAnim")
     }
     
-    func stop() {
-        print("DEBUG_PRINT: stopが呼ばれました")
+
+    
+
+    
+    func pauseAnimation(){
+        print("DEBUG_PRINT: ストップしました。現在のカウント数は\(max)")
+        let pausedTime = layer.convertTime(CACurrentMediaTime(), from: nil)
+        layer.speed = 0.0
+        layer.timeOffset = pausedTime
+
+        self.timer?.invalidate()
+        self.timer = nil
+    }
+    
+    func resumeAnimation() {
+        print("DEBUG_PRINT: 再開しました。現在のカウント数は\(max)")
+        let pausedTime = layer.timeOffset
+        layer.speed = 1.0
+        layer.timeOffset = 0.0
+        layer.beginTime = 0.0
+        let timeSincePause = layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
+        layer.beginTime = timeSincePause
+        
+        self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(count(_:)), userInfo: nil, repeats: true)
+    }
+    
+    
+    func reset() {
         shapeLayer.isHidden = true
-        label.text = "お疲れ様でした！"
-        label.adjustsFontSizeToFitWidth = true
         shapeLayer.removeAnimation(forKey: "circleAnim")
+
     }
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         print("DEBUG_PRINT: animationDidStopが呼ばれました")
+        // 一時停止の場合の処理
+        if isDelegate != false {
+            isDelegate = false
+            return
+        }
         delegate?.didFinish()
-//        timer = nil
-//        if flag {
-//            if 0 < max {
-//                start(max: max - 1)
-//                delegate?.didCount(count: max)
-//                return
-//            }
-//        }
-//        delegate?.didFinish()
-//        shapeLayer.isHidden = true
-//        label.isHidden = true
+
     }
 }
